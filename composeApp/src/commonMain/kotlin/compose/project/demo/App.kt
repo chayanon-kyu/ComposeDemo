@@ -15,6 +15,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -45,19 +46,91 @@ fun App() {
 @Composable
 @Preview
 fun CartScene() {
-    Column(
-        modifier = Modifier
-            .verticalScroll(rememberScrollState())
-            .fillMaxWidth()
-            .padding(DesignSystem.Metric.Spacing.spacingL),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingL)
-    ) {
-        CartSceneDeliveryInformationView()
-        CartSceneSlotSelectionView()
-        CartSceneProductListView()
-
-        Spacer(modifier = Modifier.fillMaxHeight())
+    Column {
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .fillMaxWidth()
+                .padding(DesignSystem.Metric.Spacing.spacingL),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingL)
+        ) {
+            CartSceneDeliveryInformationView()
+            CartSceneSlotSelectionView()
+            CartSceneProductListView()
+        }
+        Spacer(modifier = Modifier.weight(1.0f))
+        Column {
+            Divider()
+            Row(
+                modifier = Modifier
+                    .padding(DesignSystem.Metric.Spacing.spacingL),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+            ) {
+                Text("📃")
+                Text(
+                    "Coupons and Vouchers",
+                    style = DesignSystem.Text.TextStyle.headingM,
+                    color = DesignSystem.Text.TextColor.primary
+                )
+                Spacer(modifier = Modifier.weight(1.0f))
+                Text(
+                    "Select",
+                    style = DesignSystem.Text.TextStyle.headingM,
+                    color = DesignSystem.Text.TextColor.secondary
+                )
+                Text(">")
+            }
+            Divider()
+            Row(
+                modifier = Modifier
+                    .padding(DesignSystem.Metric.Spacing.spacingL),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+            ) {
+                Text("🪙")
+                Text(
+                    "Use Lotus's Coins",
+                    style = DesignSystem.Text.TextStyle.headingM,
+                    color = DesignSystem.Text.TextColor.primary
+                )
+                Spacer(modifier = Modifier.weight(1.0f))
+                Text(
+                    "Register / Login",
+                    style = DesignSystem.Text.TextStyle.headingM,
+                    color = DesignSystem.Text.TextColor.secondary,
+                    textDecoration = TextDecoration.Underline
+                )
+            }
+            Divider()
+            Row(
+                modifier = Modifier
+                    .padding(DesignSystem.Metric.Spacing.spacingL),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+            ) {
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                ) {
+                    Text(
+                        "Total",
+                        style = DesignSystem.Text.TextStyle.bodyS,
+                        color = DesignSystem.Text.TextColor.tertiary
+                    )
+                    Text(
+                        "฿12.50",
+                        style = DesignSystem.Text.TextStyle.heading2XL,
+                        color = DesignSystem.Text.TextColor.primary
+                    )
+                    Text(
+                        "Savings ฿12.50",
+                        style = DesignSystem.Text.TextStyle.bodyS,
+                        color = DesignSystem.Text.TextColor.red
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -250,6 +323,14 @@ object DesignSystem {
             )
             val headingL = TextStyle(
                 fontSize = 16.sp,
+                fontWeight = FontWeight.Bold
+            )
+            val headingXL = TextStyle(
+                fontSize = 18.sp,
+                fontWeight = FontWeight.Bold
+            )
+            val heading2XL = TextStyle(
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )
             val bodyS = TextStyle(
