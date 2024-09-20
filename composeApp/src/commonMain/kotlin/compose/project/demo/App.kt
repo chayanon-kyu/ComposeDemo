@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,7 +16,6 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.material.TextField
@@ -49,24 +47,24 @@ fun CartScene() {
     Column {
         Column(
             modifier = Modifier
-                .verticalScroll(rememberScrollState())
                 .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
                 .padding(DesignSystem.Metric.Spacing.spacingL),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingL)
         ) {
-            CartSceneDeliveryInformationView()
-            CartSceneSlotSelectionView()
-            CartSceneProductListView()
+            CartSceneDeliveryInformationSectionView()
+            CartSceneSlotSectionView()
+            CartSceneProductSectionView()
         }
         Spacer(modifier = Modifier.weight(1.0f))
-        CartSceneBottomSectionView()
+        CartSceneTotalSectionView()
     }
 }
 
 @Composable
 @Preview
-fun CartSceneDeliveryInformationView() {
+fun CartSceneDeliveryInformationSectionView() {
     Row {
         TextButton(
             onClick = {},
@@ -112,7 +110,7 @@ fun CartSceneDeliveryInformationView() {
 
 @Composable
 @Preview
-fun CartSceneSlotSelectionView() {
+fun CartSceneSlotSectionView() {
     Column {
         Row(
             horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
@@ -176,7 +174,7 @@ fun CartSceneSlotSelectionView() {
 
 @Composable
 @Preview
-fun CartSceneProductListView() {
+fun CartSceneProductSectionView() {
     var text by remember { mutableStateOf("1") }
     Column(
         verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
@@ -242,7 +240,7 @@ fun CartSceneProductListView() {
 
 @Composable
 @Preview
-fun CartSceneBottomSectionView() {
+fun CartSceneTotalSectionView() {
     Column {
         Divider()
         Row(
