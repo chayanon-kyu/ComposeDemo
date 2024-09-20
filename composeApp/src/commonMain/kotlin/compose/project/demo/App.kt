@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -56,6 +57,88 @@ fun CartScene() {
             CartSceneDeliveryInformationSectionView()
             CartSceneSlotSectionView()
             CartSceneProductSectionView()
+            Column(
+                verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                ) {
+                    Text(
+                        "Want to add more items?",
+                        style = DesignSystem.Text.TextStyle.bodyM,
+                        color = DesignSystem.Text.TextColor.primary,
+                        maxLines = 1
+                    )
+                    TextButton(
+                        contentPadding = PaddingValues(),
+                        onClick = {}
+                    ) {
+                        Text(
+                            "Back to Shopping",
+                            style = DesignSystem.Text.TextStyle.headingM,
+                            color = DesignSystem.Text.TextColor.tint,
+                            maxLines = 1
+                        )
+                    }
+                    Spacer(modifier = Modifier.weight(1.0f))
+                }
+                Text(
+                    "Order Summary",
+                    style = DesignSystem.Text.TextStyle.headingL,
+                    color = DesignSystem.Text.TextColor.primary,
+                    maxLines = 1
+                )
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                ) {
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                    ) {
+                        Text(
+                            "Total Price Before Discount",
+                            style = DesignSystem.Text.TextStyle.bodyM,
+                            color = DesignSystem.Text.TextColor.primary,
+                            maxLines = 1
+                        )
+                        Spacer(modifier = Modifier.weight(1.0f))
+                        Text(
+                            "฿12.50",
+                            style = DesignSystem.Text.TextStyle.bodyM,
+                            color = DesignSystem.Text.TextColor.primary,
+                            maxLines = 1
+                        )
+                    }
+                }
+                Divider()
+                Row {
+                    Text(
+                        "Total",
+                        style = DesignSystem.Text.TextStyle.headingL,
+                        color = DesignSystem.Text.TextColor.primary,
+                        maxLines = 1
+                    )
+                    Spacer(modifier = Modifier.weight(1.0f))
+                    Text(
+                        "฿12.50",
+                        style = DesignSystem.Text.TextStyle.headingL,
+                        color = DesignSystem.Text.TextColor.primary,
+                        maxLines = 1
+                    )
+                }
+                Row(
+                    verticalAlignment = Alignment.Top,
+                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                ) {
+                    Text("🙂")
+                    Text(
+                        "Promotions and prices are calculated as of purchasing date which may differ from delivery date.",
+                        style = DesignSystem.Text.TextStyle.bodyS,
+                        color = DesignSystem.Text.TextColor.tertiary,
+                        maxLines = 2
+                    )
+                }
+            }
         }
         Spacer(modifier = Modifier.weight(1.0f))
         CartSceneTotalSectionView()
@@ -314,7 +397,7 @@ fun CartSceneTotalSectionView() {
             TextButton(
                 modifier = Modifier
                     .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
-                    .background(Color.Gray),
+                    .background(DesignSystem.Text.TextColor.tint),
                 onClick = {},
             ) {
                 Text(
@@ -382,6 +465,7 @@ object DesignSystem {
             val tertiary = Color.Gray
             val red = Color.Red
             val white = Color.White
+            val tint = Color.DarkGray
         }
     }
     object Metric {
