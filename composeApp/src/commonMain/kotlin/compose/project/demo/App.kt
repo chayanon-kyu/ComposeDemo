@@ -57,165 +57,7 @@ fun CartScene() {
             CartSceneDeliveryInformationSectionView()
             CartSceneSlotSectionView()
             CartSceneProductSectionView()
-            Column(
-                verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
-            ) {
-                // BackToShopping
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                ) {
-                    Text(
-                        "Want to add more items?",
-                        style = DesignSystem.Text.TextStyle.bodyM,
-                        color = DesignSystem.Color.Text.primary,
-                        maxLines = 1
-                    )
-                    TextButton(
-                        contentPadding = PaddingValues(),
-                        onClick = {}
-                    ) {
-                        Text(
-                            "Back to Shopping",
-                            style = DesignSystem.Text.TextStyle.headingM,
-                            color = DesignSystem.Color.Text.tint,
-                            maxLines = 1
-                        )
-                    }
-                    Spacer(modifier = Modifier.weight(1.0f))
-                }
-                // Weight
-                Row(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
-                        .background(DesignSystem.Color.Background.primary)
-                        .padding(DesignSystem.Metric.Spacing.spacingM),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
-                ) {
-                    Text(
-                        "🧺",
-                        style = DesignSystem.Text.TextStyle.heading4XL,
-                        color = DesignSystem.Color.Text.primary
-                    )
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                    ) {
-                        Text(
-                            "We will weigh some of these items",
-                            style = DesignSystem.Text.TextStyle.headingL,
-                            color = DesignSystem.Color.Text.primary,
-                            maxLines = 1
-                        )
-                        Text(
-                            "You will pay for the final weight",
-                            style = DesignSystem.Text.TextStyle.bodyS,
-                            color = DesignSystem.Color.Text.secondary,
-                            maxLines = 2
-                        )
-                    }
-                }
-                // OrderSummary
-                Text(
-                    "Order Summary",
-                    style = DesignSystem.Text.TextStyle.headingL,
-                    color = DesignSystem.Color.Text.primary,
-                    maxLines = 1
-                )
-                Column(
-                    verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                ) {
-                    Row(
-                        horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                    ) {
-                        Text(
-                            "Total Price Before Discount",
-                            style = DesignSystem.Text.TextStyle.bodyM,
-                            color = DesignSystem.Color.Text.primary,
-                            maxLines = 1
-                        )
-                        Spacer(modifier = Modifier.weight(1.0f))
-                        Text(
-                            "฿12.50",
-                            style = DesignSystem.Text.TextStyle.bodyM,
-                            color = DesignSystem.Color.Text.primary,
-                            maxLines = 1
-                        )
-                    }
-                }
-                Divider()
-                // Total
-                Row {
-                    Text(
-                        "Total",
-                        style = DesignSystem.Text.TextStyle.headingL,
-                        color = DesignSystem.Color.Text.primary,
-                        maxLines = 1
-                    )
-                    Spacer(modifier = Modifier.weight(1.0f))
-                    Text(
-                        "฿12.50",
-                        style = DesignSystem.Text.TextStyle.headingL,
-                        color = DesignSystem.Color.Text.primary,
-                        maxLines = 1
-                    )
-                }
-                Row(
-                    verticalAlignment = Alignment.Top,
-                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                ) {
-                    Text("🙂")
-                    Text(
-                        "Promotions and prices are calculated as of purchasing date which may differ from delivery date.",
-                        style = DesignSystem.Text.TextStyle.bodyS,
-                        color = DesignSystem.Color.Text.tertiary,
-                        maxLines = 2
-                    )
-                }
-                // ClubCard
-                Row(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
-                        .background(DesignSystem.Color.Background.primary)
-                        .padding(DesignSystem.Metric.Spacing.spacingM),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                ) {
-                    Text("💳")
-                    Column(
-                        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                    ) {
-                        Text(
-                            "Start earning coins",
-                            style = DesignSystem.Text.TextStyle.headingM,
-                            color = DesignSystem.Color.Text.primary,
-                            maxLines = 1
-                        )
-                        Text(
-                            "My Lotus's only. Login or register to start earning.",
-                            style = DesignSystem.Text.TextStyle.bodyS,
-                            color = DesignSystem.Color.Text.secondary,
-                            maxLines = 2
-                        )
-                    }
-                    Spacer(modifier = Modifier.weight(1.0f))
-                    TextButton(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
-                            .background(DesignSystem.Color.Button.secondary),
-                        contentPadding = PaddingValues(),
-                        onClick = {},
-                    ) {
-                        Text(
-                            "Login",
-                            style = DesignSystem.Text.TextStyle.headingL,
-                            color = DesignSystem.Color.Text.primary
-                        )
-                    }
-                }
-            }
+            CartSceneSummarySectionView()
         }
         Spacer(modifier = Modifier.weight(1.0f))
         CartSceneTotalSectionView()
@@ -335,63 +177,236 @@ fun CartSceneSlotSectionView() {
 @Composable
 @Preview
 fun CartSceneProductSectionView() {
-    var text by remember { mutableStateOf("1") }
     Column(
         verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
     ) {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+        CartSceneProductSectionProductView()
+        CartSceneProductSectionProductView()
+        CartSceneProductSectionProductView()
+    }
+}
+
+@Composable
+@Preview
+fun CartSceneProductSectionProductView() {
+    var text by remember { mutableStateOf("1") }
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+    ) {
+        Column(
+            verticalArrangement = Arrangement.Top
         ) {
-            Column(
-                verticalArrangement = Arrangement.Top
+            Text(
+                "Image",
+                modifier = Modifier
+                    .width(60.dp)
+                    .height(60.dp)
+                    .border(
+                        border = ButtonDefaults.outlinedBorder,
+                        shape = RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerM)
+                    )
+                    .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerS))
+                    .background(Color.LightGray)
+            )
+        }
+        Column(
+            verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+        ) {
+            Text(
+                "Homey Sesame Cracker 120G",
+                style = DesignSystem.Text.TextStyle.bodyM,
+                color = DesignSystem.Color.Text.primary
+            )
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
             ) {
-                Text("Image",
-                    modifier = Modifier
-                        .width(60.dp)
-                        .height(60.dp)
-                        .border(
-                            border = ButtonDefaults.outlinedBorder,
-                            shape = RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerM)
-                        )
-                        .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerS))
-                        .background(Color.LightGray)
+                Text(
+                    "฿12.50",
+                    style = DesignSystem.Text.TextStyle.headingL,
+                    color = DesignSystem.Color.Text.red
+                )
+                Text(
+                    "฿25.00",
+                    style = DesignSystem.Text.TextStyle.bodyM,
+                    color = DesignSystem.Color.Text.tertiary,
+                    textDecoration = TextDecoration.LineThrough
                 )
             }
+        }
+        Spacer(modifier = Modifier.weight(1.0f))
+        Column(
+            modifier = Modifier
+                .width(80.dp),
+            verticalArrangement = Arrangement.Top
+        ) {
+            TextField(
+                value = text,
+                onValueChange = { text = it },
+                label = { },
+                textStyle = DesignSystem.Text.TextStyle.bodyM.copy(textAlign = TextAlign.Center)
+            )
+        }
+    }
+}
+
+@Composable
+@Preview
+fun CartSceneSummarySectionView() {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+    ) {
+        // BackToShopping
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+        ) {
+            Text(
+                "Want to add more items?",
+                style = DesignSystem.Text.TextStyle.bodyM,
+                color = DesignSystem.Color.Text.primary,
+                maxLines = 1
+            )
+            TextButton(
+                contentPadding = PaddingValues(),
+                onClick = {}
+            ) {
+                Text(
+                    "Back to Shopping",
+                    style = DesignSystem.Text.TextStyle.headingM,
+                    color = DesignSystem.Color.Text.tint,
+                    maxLines = 1
+                )
+            }
+            Spacer(modifier = Modifier.weight(1.0f))
+        }
+        // Weight
+        Row(
+            modifier = Modifier
+                .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
+                .background(DesignSystem.Color.Background.primary)
+                .padding(DesignSystem.Metric.Spacing.spacingM),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+        ) {
+            Text(
+                "🧺",
+                style = DesignSystem.Text.TextStyle.heading4XL,
+                color = DesignSystem.Color.Text.primary
+            )
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+            ) {
+                Text(
+                    "We will weigh some of these items",
+                    style = DesignSystem.Text.TextStyle.headingL,
+                    color = DesignSystem.Color.Text.primary,
+                    maxLines = 1
+                )
+                Text(
+                    "You will pay for the final weight",
+                    style = DesignSystem.Text.TextStyle.bodyS,
+                    color = DesignSystem.Color.Text.secondary,
+                    maxLines = 2
+                )
+            }
+        }
+        // OrderSummary
+        Text(
+            "Order Summary",
+            style = DesignSystem.Text.TextStyle.headingL,
+            color = DesignSystem.Color.Text.primary,
+            maxLines = 1
+        )
+        Column(
+            verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+            ) {
+                Text(
+                    "Total Price Before Discount",
+                    style = DesignSystem.Text.TextStyle.bodyM,
+                    color = DesignSystem.Color.Text.primary,
+                    maxLines = 1
+                )
+                Spacer(modifier = Modifier.weight(1.0f))
+                Text(
+                    "฿12.50",
+                    style = DesignSystem.Text.TextStyle.bodyM,
+                    color = DesignSystem.Color.Text.primary,
+                    maxLines = 1
+                )
+            }
+        }
+        Divider()
+        // Total
+        Row {
+            Text(
+                "Total",
+                style = DesignSystem.Text.TextStyle.headingL,
+                color = DesignSystem.Color.Text.primary,
+                maxLines = 1
+            )
+            Spacer(modifier = Modifier.weight(1.0f))
+            Text(
+                "฿12.50",
+                style = DesignSystem.Text.TextStyle.headingL,
+                color = DesignSystem.Color.Text.primary,
+                maxLines = 1
+            )
+        }
+        Row(
+            verticalAlignment = Alignment.Top,
+            horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+        ) {
+            Text("🙂")
+            Text(
+                "Promotions and prices are calculated as of purchasing date which may differ from delivery date.",
+                style = DesignSystem.Text.TextStyle.bodyS,
+                color = DesignSystem.Color.Text.tertiary,
+                maxLines = 2
+            )
+        }
+        // ClubCard
+        Row(
+            modifier = Modifier
+                .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
+                .background(DesignSystem.Color.Background.primary)
+                .padding(DesignSystem.Metric.Spacing.spacingM),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+        ) {
+            Text("💳")
             Column(
                 verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
             ) {
                 Text(
-                    "ProductName",
-                    style = DesignSystem.Text.TextStyle.bodyM,
-                    color = DesignSystem.Color.Text.primary
+                    "Start earning coins",
+                    style = DesignSystem.Text.TextStyle.headingM,
+                    color = DesignSystem.Color.Text.primary,
+                    maxLines = 1
                 )
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
-                ) {
-                    Text(
-                        "฿12.50",
-                        style = DesignSystem.Text.TextStyle.headingL,
-                        color = DesignSystem.Color.Text.red
-                    )
-                    Text(
-                        "฿25.00",
-                        style = DesignSystem.Text.TextStyle.bodyM,
-                        color = DesignSystem.Color.Text.tertiary,
-                        textDecoration = TextDecoration.LineThrough
-                    )
-                }
+                Text(
+                    "My Lotus's only. Login or register to start earning.",
+                    style = DesignSystem.Text.TextStyle.bodyS,
+                    color = DesignSystem.Color.Text.secondary,
+                    maxLines = 2
+                )
             }
             Spacer(modifier = Modifier.weight(1.0f))
-            Column(
+            TextButton(
                 modifier = Modifier
-                    .width(80.dp),
-                verticalArrangement = Arrangement.Top
+                    .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
+                    .background(DesignSystem.Color.Button.secondary),
+                contentPadding = PaddingValues(),
+                onClick = {},
             ) {
-                TextField(
-                    value = text,
-                    onValueChange = { text = it },
-                    label = { },
-                    textStyle = DesignSystem.Text.TextStyle.bodyM.copy(textAlign = TextAlign.Center)
+                Text(
+                    "Login",
+                    style = DesignSystem.Text.TextStyle.headingL,
+                    color = DesignSystem.Color.Text.primary
                 )
             }
         }
