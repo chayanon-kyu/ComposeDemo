@@ -1,5 +1,6 @@
 package compose.project.demo
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -7,18 +8,27 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
+import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -37,16 +47,15 @@ fun App() {
 fun CartScene() {
     Column(
         modifier = Modifier
+            .verticalScroll(rememberScrollState())
             .fillMaxWidth()
             .padding(DesignSystem.Metric.Spacing.spacingL),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingL)
     ) {
-        // DeliveryInformation
         CartSceneDeliveryInformationView()
-
-        // Slot
         CartSceneSlotSelectionView()
+        CartSceneProductListView()
 
         Spacer(modifier = Modifier.fillMaxHeight())
     }
@@ -162,6 +171,72 @@ fun CartSceneSlotSelectionView() {
     }
 }
 
+@Composable
+@Preview
+fun CartSceneProductListView() {
+    var text by remember { mutableStateOf("1") }
+    Column(
+        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Top
+            ) {
+                Text("Image",
+                    modifier = Modifier
+                        .width(60.dp)
+                        .height(60.dp)
+                        .border(
+                            border = ButtonDefaults.outlinedBorder,
+                            shape = RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerM)
+                        )
+                        .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerS))
+                        .background(Color.LightGray)
+                )
+            }
+            Column(
+                verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+            ) {
+                Text(
+                    "ProductName",
+                    style = DesignSystem.Text.TextStyle.bodyM,
+                    color = DesignSystem.Text.TextColor.primary
+                )
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                ) {
+                    Text(
+                        "฿12.50",
+                        style = DesignSystem.Text.TextStyle.headingL,
+                        color = DesignSystem.Text.TextColor.red
+                    )
+                    Text(
+                        "฿25.00",
+                        style = DesignSystem.Text.TextStyle.bodyM,
+                        color = DesignSystem.Text.TextColor.tertiary,
+                        textDecoration = TextDecoration.LineThrough
+                    )
+                }
+            }
+            Spacer(modifier = Modifier.weight(1.0f))
+            Column(
+                modifier = Modifier
+                    .width(80.dp),
+                verticalArrangement = Arrangement.Top
+            ) {
+                TextField(
+                    value = text,
+                    onValueChange = { text = it },
+                    label = { },
+                    textStyle = DesignSystem.Text.TextStyle.bodyM.copy(textAlign = TextAlign.Center)
+                )
+            }
+        }
+    }
+}
+
 object DesignSystem {
     object Text {
         object TextStyle {
@@ -194,6 +269,7 @@ object DesignSystem {
             val primary = Color.Black
             val secondary = Color.DarkGray
             val tertiary = Color.Gray
+            val red = Color.Red
         }
     }
     object Metric {
