@@ -143,14 +143,14 @@ fun CartScene() {
                 }
                 // ClubCard
                 Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
+                        .background(DesignSystem.Color.Background.primary)
+                        .padding(DesignSystem.Metric.Spacing.spacingM),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
                 ) {
-                    Row(
-                        verticalAlignment = Alignment.Top
-                    ) {
-                        Text("💳")
-                    }
+                    Text("💳")
                     Column(
                         verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
                     ) {
@@ -167,21 +167,18 @@ fun CartScene() {
                             maxLines = 2
                         )
                     }
+                    Spacer(modifier = Modifier.weight(1.0f))
                     TextButton(
                         modifier = Modifier
                             .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
                             .background(DesignSystem.Color.Button.secondary),
+                        contentPadding = PaddingValues(),
                         onClick = {},
                     ) {
                         Text(
                             "Login",
                             style = DesignSystem.Text.TextStyle.headingL,
-                            color = DesignSystem.Color.Text.primary,
-                            modifier = Modifier
-                                .padding(
-                                    vertical = DesignSystem.Metric.Spacing.spacingS,
-                                    horizontal = DesignSystem.Metric.Spacing.spacingL * 2
-                                )
+                            color = DesignSystem.Color.Text.primary
                         )
                     }
                 }
@@ -469,6 +466,8 @@ object DesignSystem {
         private val gray550 = Color(0xFF6B6B6B)
         private val gray500 = Color(0xFF7D7D7D)
         private val gray75 = Color(0xFFE8E8E8)
+        private val gray50 = Color(0xFFEDEDED)
+        private val gray25 = Color(0xFFF3F3F3)
         private val red = Color(0xFFFF211C)
         private val white = Color(0xFFFFFFFF)
 
@@ -480,10 +479,13 @@ object DesignSystem {
             val white = Color.white
             val tint = green600
         }
-
         object Button {
             val primary = green600
             val secondary = gray75
+        }
+        object Background {
+            val white = Color.white
+            val primary = gray25
         }
     }
     object Text {
