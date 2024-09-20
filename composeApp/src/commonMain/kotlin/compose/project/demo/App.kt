@@ -92,6 +92,84 @@ fun App() {
             }
 
             // Slot
+            Column {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text("🕓")
+                    Text(
+                        "Reserve a time slot tomorrow",
+                        style = TextStyle(
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.SemiBold,
+                            color = Color.Black
+                        ),
+                        maxLines = 1
+                    )
+                    Spacer(modifier = Modifier.fillMaxWidth())
+                }
+
+                TextButton(
+                    onClick = {},
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .border(
+                                border = ButtonDefaults.outlinedBorder,
+                                shape = RoundedCornerShape(4.dp)
+                            )
+                            .padding(8.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        ) {
+                            Text(
+                                "09:00 - 12:00",
+                                style = TextStyle(
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black
+                                )
+                            )
+                            Text(
+                                "·",
+                                style = TextStyle(
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.Black
+                                )
+                            )
+                            Text(
+                                "(Free, if >= ฿599)",
+                                style = TextStyle(
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Normal,
+                                    color = Color.DarkGray
+                                )
+                            )
+                            Spacer(modifier = Modifier.weight(1.0f))
+                            Text(
+                                "฿30",
+                                style = TextStyle(
+                                    fontSize = 16.sp,
+                                    fontWeight = FontWeight.Normal,
+                                    color = Color.Black
+                                )
+                            )
+                        }
+                        Text(
+                            "Fastest delivery slot",
+                            style = TextStyle(
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Normal,
+                                color = Color.DarkGray
+                            )
+                        )
+                    }
+                }
+            }
+
             Spacer(modifier = Modifier.fillMaxHeight())
         }
     }
