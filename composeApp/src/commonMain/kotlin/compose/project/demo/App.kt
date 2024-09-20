@@ -37,10 +37,11 @@ fun App() {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(
-            modifier = Modifier.fillMaxWidth()
-                .padding(12.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(DesignSystem.Metric.Spacing.spacingL),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingL)
         ) {
             // DeliveryDetail
             Row {
@@ -51,10 +52,10 @@ fun App() {
                         modifier = Modifier
                             .border(
                                 border = ButtonDefaults.outlinedBorder,
-                                shape = RoundedCornerShape(4.dp)
+                                shape = RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerM)
                             )
-                            .padding(8.dp),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            .padding(DesignSystem.Metric.Spacing.spacingM),
+                        horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
                     ) {
                         Column(
                             verticalArrangement = Arrangement.Top
@@ -62,24 +63,18 @@ fun App() {
                             Text("🚛") // Change To Image
                         }
                         Column(
-                            verticalArrangement = Arrangement.spacedBy(4.dp)
+                            verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
                         ) {
                             Text(
                                 "centralwOrld 999/9 Rama I Rd, Pathum Wan, Bangkok 10330",
-                                style = TextStyle(
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Normal,
-                                    color = Color.DarkGray
-                                ),
+                                style = DesignSystem.Text.TextStyle.bodyM,
+                                color = DesignSystem.Text.TextColor.secondary,
                                 maxLines = 2
                             )
                             Text(
                                 "No note to the driver",
-                                style = TextStyle(
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.Normal,
-                                    color = Color.LightGray
-                                )
+                                style = DesignSystem.Text.TextStyle.bodyS,
+                                color = DesignSystem.Text.TextColor.tertiary
                             )
                         }
                         Column(
@@ -94,16 +89,13 @@ fun App() {
             // Slot
             Column {
                 Row(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
                 ) {
                     Text("🕓")
                     Text(
                         "Reserve a time slot tomorrow",
-                        style = TextStyle(
-                            fontSize = 18.sp,
-                            fontWeight = FontWeight.SemiBold,
-                            color = Color.Black
-                        ),
+                        style = DesignSystem.Text.TextStyle.headingL,
+                        color = DesignSystem.Text.TextColor.primary,
                         maxLines = 1
                     )
                     Spacer(modifier = Modifier.fillMaxWidth())
@@ -116,61 +108,94 @@ fun App() {
                         modifier = Modifier
                             .border(
                                 border = ButtonDefaults.outlinedBorder,
-                                shape = RoundedCornerShape(4.dp)
+                                shape = RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerM)
                             )
-                            .padding(8.dp),
-                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                            .padding(DesignSystem.Metric.Spacing.spacingM),
+                        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
                     ) {
                         Row(
-                            horizontalArrangement = Arrangement.spacedBy(4.dp)
+                            horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
                         ) {
                             Text(
                                 "09:00 - 12:00",
-                                style = TextStyle(
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.Black
-                                )
+                                style = DesignSystem.Text.TextStyle.headingM,
+                                color = DesignSystem.Text.TextColor.primary
                             )
                             Text(
                                 "·",
-                                style = TextStyle(
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = Color.Black
-                                )
+                                style = DesignSystem.Text.TextStyle.headingM,
+                                color = DesignSystem.Text.TextColor.primary
                             )
                             Text(
                                 "(Free, if >= ฿599)",
-                                style = TextStyle(
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Normal,
-                                    color = Color.DarkGray
-                                )
+                                style = DesignSystem.Text.TextStyle.bodyM,
+                                color = DesignSystem.Text.TextColor.secondary
                             )
                             Spacer(modifier = Modifier.weight(1.0f))
                             Text(
                                 "฿30",
-                                style = TextStyle(
-                                    fontSize = 16.sp,
-                                    fontWeight = FontWeight.Normal,
-                                    color = Color.Black
-                                )
+                                style = DesignSystem.Text.TextStyle.bodyM,
+                                color = DesignSystem.Text.TextColor.primary
                             )
                         }
                         Text(
                             "Fastest delivery slot",
-                            style = TextStyle(
-                                fontSize = 12.sp,
-                                fontWeight = FontWeight.Normal,
-                                color = Color.DarkGray
-                            )
+                            style = DesignSystem.Text.TextStyle.bodyS,
+                            color = DesignSystem.Text.TextColor.secondary
                         )
                     }
                 }
             }
 
             Spacer(modifier = Modifier.fillMaxHeight())
+        }
+    }
+}
+
+object DesignSystem {
+    object Text {
+        object TextStyle {
+            val headingS = TextStyle(
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Bold
+            )
+            val headingM = TextStyle(
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Bold
+            )
+            val headingL = TextStyle(
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold
+            )
+            val bodyS = TextStyle(
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Normal
+            )
+            val bodyM = TextStyle(
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Normal
+            )
+            val bodyL = TextStyle(
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Normal
+            )
+        }
+        object TextColor {
+            val primary = Color.Black
+            val secondary = Color.DarkGray
+            val tertiary = Color.Gray
+        }
+    }
+    object Metric {
+        object Spacing {
+            val spacingS = 4.dp
+            val spacingM = 8.dp
+            val spacingL = 12.dp
+        }
+        object CornerRadius {
+            val cornerS = 4.dp
+            val cornerM = 8.dp
+            val cornerL = 12.dp
         }
     }
 }
