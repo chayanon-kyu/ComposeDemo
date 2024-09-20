@@ -60,6 +60,7 @@ fun CartScene() {
             Column(
                 verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
             ) {
+                // BackToShopping
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
@@ -67,7 +68,7 @@ fun CartScene() {
                     Text(
                         "Want to add more items?",
                         style = DesignSystem.Text.TextStyle.bodyM,
-                        color = DesignSystem.Color.primary,
+                        color = DesignSystem.Color.Text.primary,
                         maxLines = 1
                     )
                     TextButton(
@@ -77,16 +78,17 @@ fun CartScene() {
                         Text(
                             "Back to Shopping",
                             style = DesignSystem.Text.TextStyle.headingM,
-                            color = DesignSystem.Color.tint,
+                            color = DesignSystem.Color.Text.tint,
                             maxLines = 1
                         )
                     }
                     Spacer(modifier = Modifier.weight(1.0f))
                 }
+                // OrderSummary
                 Text(
                     "Order Summary",
                     style = DesignSystem.Text.TextStyle.headingL,
-                    color = DesignSystem.Color.primary,
+                    color = DesignSystem.Color.Text.primary,
                     maxLines = 1
                 )
                 Column(
@@ -98,31 +100,32 @@ fun CartScene() {
                         Text(
                             "Total Price Before Discount",
                             style = DesignSystem.Text.TextStyle.bodyM,
-                            color = DesignSystem.Color.primary,
+                            color = DesignSystem.Color.Text.primary,
                             maxLines = 1
                         )
                         Spacer(modifier = Modifier.weight(1.0f))
                         Text(
                             "฿12.50",
                             style = DesignSystem.Text.TextStyle.bodyM,
-                            color = DesignSystem.Color.primary,
+                            color = DesignSystem.Color.Text.primary,
                             maxLines = 1
                         )
                     }
                 }
                 Divider()
+                // Total
                 Row {
                     Text(
                         "Total",
                         style = DesignSystem.Text.TextStyle.headingL,
-                        color = DesignSystem.Color.primary,
+                        color = DesignSystem.Color.Text.primary,
                         maxLines = 1
                     )
                     Spacer(modifier = Modifier.weight(1.0f))
                     Text(
                         "฿12.50",
                         style = DesignSystem.Text.TextStyle.headingL,
-                        color = DesignSystem.Color.primary,
+                        color = DesignSystem.Color.Text.primary,
                         maxLines = 1
                     )
                 }
@@ -134,9 +137,53 @@ fun CartScene() {
                     Text(
                         "Promotions and prices are calculated as of purchasing date which may differ from delivery date.",
                         style = DesignSystem.Text.TextStyle.bodyS,
-                        color = DesignSystem.Color.tertiary,
+                        color = DesignSystem.Color.Text.tertiary,
                         maxLines = 2
                     )
+                }
+                // ClubCard
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                ) {
+                    Row(
+                        verticalAlignment = Alignment.Top
+                    ) {
+                        Text("💳")
+                    }
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                    ) {
+                        Text(
+                            "Start earning coins",
+                            style = DesignSystem.Text.TextStyle.headingM,
+                            color = DesignSystem.Color.Text.primary,
+                            maxLines = 1
+                        )
+                        Text(
+                            "My Lotus's only. Login or register to start earning.",
+                            style = DesignSystem.Text.TextStyle.bodyS,
+                            color = DesignSystem.Color.Text.secondary,
+                            maxLines = 2
+                        )
+                    }
+                    TextButton(
+                        modifier = Modifier
+                            .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
+                            .background(DesignSystem.Color.Button.secondary),
+                        onClick = {},
+                    ) {
+                        Text(
+                            "Login",
+                            style = DesignSystem.Text.TextStyle.headingL,
+                            color = DesignSystem.Color.Text.primary,
+                            modifier = Modifier
+                                .padding(
+                                    vertical = DesignSystem.Metric.Spacing.spacingS,
+                                    horizontal = DesignSystem.Metric.Spacing.spacingL * 2
+                                )
+                        )
+                    }
                 }
             }
         }
@@ -172,13 +219,13 @@ fun CartSceneDeliveryInformationSectionView() {
                     Text(
                         "centralwOrld 999/9 Rama I Rd, Pathum Wan, Bangkok 10330",
                         style = DesignSystem.Text.TextStyle.bodyM,
-                        color = DesignSystem.Color.secondary,
+                        color = DesignSystem.Color.Text.secondary,
                         maxLines = 2
                     )
                     Text(
                         "No note to the driver",
                         style = DesignSystem.Text.TextStyle.bodyS,
-                        color = DesignSystem.Color.tertiary
+                        color = DesignSystem.Color.Text.tertiary
                     )
                 }
                 Column(
@@ -202,7 +249,7 @@ fun CartSceneSlotSectionView() {
             Text(
                 "Reserve a time slot tomorrow",
                 style = DesignSystem.Text.TextStyle.headingL,
-                color = DesignSystem.Color.primary,
+                color = DesignSystem.Color.Text.primary,
                 maxLines = 1
             )
             Spacer(modifier = Modifier.fillMaxWidth())
@@ -226,29 +273,29 @@ fun CartSceneSlotSectionView() {
                     Text(
                         "09:00 - 12:00",
                         style = DesignSystem.Text.TextStyle.headingM,
-                        color = DesignSystem.Color.primary
+                        color = DesignSystem.Color.Text.primary
                     )
                     Text(
                         "·",
                         style = DesignSystem.Text.TextStyle.headingM,
-                        color = DesignSystem.Color.primary
+                        color = DesignSystem.Color.Text.primary
                     )
                     Text(
                         "(Free, if >= ฿599)",
                         style = DesignSystem.Text.TextStyle.bodyM,
-                        color = DesignSystem.Color.secondary
+                        color = DesignSystem.Color.Text.secondary
                     )
                     Spacer(modifier = Modifier.weight(1.0f))
                     Text(
                         "฿30",
                         style = DesignSystem.Text.TextStyle.bodyM,
-                        color = DesignSystem.Color.primary
+                        color = DesignSystem.Color.Text.primary
                     )
                 }
                 Text(
                     "Fastest delivery slot",
                     style = DesignSystem.Text.TextStyle.bodyS,
-                    color = DesignSystem.Color.secondary
+                    color = DesignSystem.Color.Text.secondary
                 )
             }
         }
@@ -286,7 +333,7 @@ fun CartSceneProductSectionView() {
                 Text(
                     "ProductName",
                     style = DesignSystem.Text.TextStyle.bodyM,
-                    color = DesignSystem.Color.primary
+                    color = DesignSystem.Color.Text.primary
                 )
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
@@ -294,12 +341,12 @@ fun CartSceneProductSectionView() {
                     Text(
                         "฿12.50",
                         style = DesignSystem.Text.TextStyle.headingL,
-                        color = DesignSystem.Color.red
+                        color = DesignSystem.Color.Text.red
                     )
                     Text(
                         "฿25.00",
                         style = DesignSystem.Text.TextStyle.bodyM,
-                        color = DesignSystem.Color.tertiary,
+                        color = DesignSystem.Color.Text.tertiary,
                         textDecoration = TextDecoration.LineThrough
                     )
                 }
@@ -336,13 +383,13 @@ fun CartSceneTotalSectionView() {
             Text(
                 "Coupons and Vouchers",
                 style = DesignSystem.Text.TextStyle.headingM,
-                color = DesignSystem.Color.primary
+                color = DesignSystem.Color.Text.primary
             )
             Spacer(modifier = Modifier.weight(1.0f))
             Text(
                 "Select",
                 style = DesignSystem.Text.TextStyle.headingM,
-                color = DesignSystem.Color.secondary
+                color = DesignSystem.Color.Text.secondary
             )
             Text(">")
         }
@@ -357,13 +404,13 @@ fun CartSceneTotalSectionView() {
             Text(
                 "Use Lotus's Coins",
                 style = DesignSystem.Text.TextStyle.headingM,
-                color = DesignSystem.Color.primary
+                color = DesignSystem.Color.Text.primary
             )
             Spacer(modifier = Modifier.weight(1.0f))
             Text(
                 "Register / Login",
                 style = DesignSystem.Text.TextStyle.headingM,
-                color = DesignSystem.Color.secondary,
+                color = DesignSystem.Color.Text.secondary,
                 textDecoration = TextDecoration.Underline
             )
         }
@@ -380,30 +427,30 @@ fun CartSceneTotalSectionView() {
                 Text(
                     "Total",
                     style = DesignSystem.Text.TextStyle.bodyS,
-                    color = DesignSystem.Color.tertiary
+                    color = DesignSystem.Color.Text.tertiary
                 )
                 Text(
                     "฿12.50",
                     style = DesignSystem.Text.TextStyle.heading2XL,
-                    color = DesignSystem.Color.primary
+                    color = DesignSystem.Color.Text.primary
                 )
                 Text(
                     "Savings ฿12.50",
                     style = DesignSystem.Text.TextStyle.bodyS,
-                    color = DesignSystem.Color.red
+                    color = DesignSystem.Color.Text.red
                 )
             }
             Spacer(modifier = Modifier.weight(1.0f))
             TextButton(
                 modifier = Modifier
                     .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
-                    .background(DesignSystem.Color.tint),
+                    .background(DesignSystem.Color.Button.primary),
                 onClick = {},
             ) {
                 Text(
                     "Place Order",
                     style = DesignSystem.Text.TextStyle.heading2XL,
-                    color = DesignSystem.Color.white,
+                    color = DesignSystem.Color.Text.white,
                     modifier = Modifier
                         .padding(
                             vertical = DesignSystem.Metric.Spacing.spacingS,
@@ -417,12 +464,27 @@ fun CartSceneTotalSectionView() {
 
 object DesignSystem {
     object Color {
-        val primary = Color(0xFF424242)
-        val secondary = Color(0xFF6B6B6B)
-        val tertiary = Color(0xFF7D7D7D)
-        val red = Color(0xFFFF211C)
-        val white = Color(0xFFFFFFFF)
-        val tint = Color(0xFF00BCB4)
+        private val green600 = Color(0xFF00BCB4)
+        private val gray700 = Color(0xFF424242)
+        private val gray550 = Color(0xFF6B6B6B)
+        private val gray500 = Color(0xFF7D7D7D)
+        private val gray75 = Color(0xFFE8E8E8)
+        private val red = Color(0xFFFF211C)
+        private val white = Color(0xFFFFFFFF)
+
+        object Text {
+            val primary = gray700
+            val secondary = gray550
+            val tertiary = gray500
+            val red = Color.red
+            val white = Color.white
+            val tint = green600
+        }
+
+        object Button {
+            val primary = green600
+            val secondary = gray75
+        }
     }
     object Text {
         object TextStyle {
