@@ -417,12 +417,12 @@ fun CartSceneTotalSectionView() {
 
 object DesignSystem {
     object Color {
-        val primary = androidx.compose.ui.graphics.Color.Black
-        val secondary = androidx.compose.ui.graphics.Color.DarkGray
-        val tertiary = androidx.compose.ui.graphics.Color.Gray
-        val red = androidx.compose.ui.graphics.Color.Red
-        val white = androidx.compose.ui.graphics.Color.White
-        val tint = androidx.compose.ui.graphics.Color(0xFF00BCB4)
+        val primary = Color(0xFF424242)
+        val secondary = Color(0xFF6B6B6B)
+        val tertiary = Color(0xFF7D7D7D)
+        val red = Color(0xFFFF211C)
+        val white = Color(0xFFFFFFFF)
+        val tint = Color(0xFF00BCB4)
     }
     object Text {
         object TextStyle {
