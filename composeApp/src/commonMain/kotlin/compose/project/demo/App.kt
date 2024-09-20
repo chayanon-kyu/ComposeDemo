@@ -84,6 +84,39 @@ fun CartScene() {
                     }
                     Spacer(modifier = Modifier.weight(1.0f))
                 }
+                // Weight
+                Row(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(DesignSystem.Metric.CornerRadius.cornerL))
+                        .background(DesignSystem.Color.Background.primary)
+                        .padding(DesignSystem.Metric.Spacing.spacingM),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingM)
+                ) {
+                    Text(
+                        "🧺",
+                        style = DesignSystem.Text.TextStyle.heading4XL,
+                        color = DesignSystem.Color.Text.primary
+                    )
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        verticalArrangement = Arrangement.spacedBy(DesignSystem.Metric.Spacing.spacingS)
+                    ) {
+                        Text(
+                            "We will weigh some of these items",
+                            style = DesignSystem.Text.TextStyle.headingL,
+                            color = DesignSystem.Color.Text.primary,
+                            maxLines = 1
+                        )
+                        Text(
+                            "You will pay for the final weight",
+                            style = DesignSystem.Text.TextStyle.bodyS,
+                            color = DesignSystem.Color.Text.secondary,
+                            maxLines = 2
+                        )
+                    }
+                }
                 // OrderSummary
                 Text(
                     "Order Summary",
