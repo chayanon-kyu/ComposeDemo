@@ -12,7 +12,7 @@ let package = Package(
    targets: [
 	  .binaryTarget(
 		 name: "Shared",
-		 url: "https://github.com/chayanon-kyu/ComposeDemo/releases/download/0.1.0/Shared.xcframework.zip",
-		 checksum: "093d7c08ad671ff9c6feca64ac950798463e82a99760a0e8e9f6bca4177e0aa3")
+		 url: "https://raw.github.com/chayanon-kyu/ComposeDemo/main/Shared.xcframework.zip",
+		 checksum: "eb1b87576f155237eb413ea0a8e14a50bea02b5a5af8eb5942c12e849e76532f")
    ]
 )
